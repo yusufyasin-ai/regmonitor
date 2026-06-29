@@ -1,0 +1,151 @@
+# Regulatory sources monitored by regmonitor.
+#
+# Parser hints let you add new sources without code changes:
+#   item_selector   – CSS selector for the repeating row/card elements
+#   fields.title    – selector (relative to row) + attr ("text" or an HTML attribute name)
+#   fields.date     – same; leave selector empty to use the row itself
+#   fields.link     – selector + attr (usually "href")
+#
+# Fixture support:
+#   fixture_path  – path to a local HTML file (relative to the regmonitor/ root).
+#                   When set, the file is read instead of making an HTTP request.
+#                   url is still used as the base URL for resolving relative links,
+#                   and is kept as the canonical reference even when a fixture is active.
+#                   The liveness check is identical regardless of source type —
+#                   a fixture that parses to zero items still fires SOURCE_FAILURE.
+#                   Omit or leave blank to fetch live.
+#
+# Liveness:
+#   min_items  – parse returning fewer than this triggers SOURCE_FAILURE/critical
+#                and the source is excluded from the digest. Prevents silent empty runs.
+#
+# To add SAMA, QCB, CBO: copy a block, fill in slug/url/selectors, set enabled: true.
+# No code changes required.
+
+sources:
+
+  # ---------------------------------------------------------------------------
+  # CBUAE Rulebook – revision updates feed
+  # Selector notes: Drupal Views table; verify column class names on the live page.
+  # ---------------------------------------------------------------------------
+  - name: "CBUAE Rulebook Updates"
+    slug: cbuae_rulebook
+    url: "https://rulebook.centralbank.ae/en/view-revision-updates"
+    fixture_path: "fixtures/cbuae_rulebook.html"
+    enabled: true
+    tags: [uae, banking, rulebook]
+    parser:
+      type: html
+      # Each row in the revisions table.
+      item_selector: "table.views-table tbody tr"
+      fields:
+        title:
+          # The linked document name; adjust class if column renders differently.
+          selector: "td.views-field-title"
+          attr: text
+        date:
+          selector: "td.views-field-changed"
+          attr: text
+        link:
+          selector: "td.views-field-title a"
+          attr: href
+    liveness:
+      min_items: 3
+
+  # ---------------------------------------------------------------------------
+  # CBB (Bahrain) – list of circulars on Thomson Reuters Rulebook
+  # Selector notes: same Drupal Views scaffold; verify date column class.
+  # ---------------------------------------------------------------------------
+  - name: "CBB Circulars"
+    slug: cbb_circulars
+    url: "https://cbben.thomsonreuters.com/rulebook/list-circulars-0"
+    fixture_path: "fixtures/cbb_circulars.html"
+    enabled: true
+    tags: [bahrain, banking, circular]
+    parser:
+      type: html
+      item_selector: "table.views-table tbody tr"
+      fields:
+        title:
+          selector: "td.views-field-title"
+          attr: text
+        date:
+          selector: "td.views-field-field-date-of-issue"
+          attr: text
+        link:
+          selector: "td.views-field-title a"
+          attr: href
+    liveness:
+      min_items: 3
+
+  # ---------------------------------------------------------------------------
+  # SAMA – placeholder (selectors TBD)
+  # ---------------------------------------------------------------------------
+  - name: "SAMA Circulars"
+    slug: sama_circulars
+    url: "https://www.sama.gov.sa/en-US/Laws/Pages/Circulars.aspx"
+    enabled: false
+    tags: [ksa, banking, circular]
+    parser:
+      type: html
+      item_selector: "TODO"
+      fields:
+        title:
+          selector: "TODO"
+          attr: text
+        date:
+          selector: "TODO"
+          attr: text
+        link:
+          selector: "TODO"
+          attr: href
+    liveness:
+      min_items: 1
+
+  # ---------------------------------------------------------------------------
+  # QCB – placeholder (selectors TBD)
+  # ---------------------------------------------------------------------------
+  - name: "QCB Circulars"
+    slug: qcb_circulars
+    url: "https://www.qcb.gov.qa/En/News/Circulars/Pages/default.aspx"
+    enabled: false
+    tags: [qatar, banking, circular]
+    parser:
+      type: html
+      item_selector: "TODO"
+      fields:
+        title:
+          selector: "TODO"
+          attr: text
+        date:
+          selector: "TODO"
+          attr: text
+        link:
+          selector: "TODO"
+          attr: href
+    liveness:
+      min_items: 1
+
+  # ---------------------------------------------------------------------------
+  # CBO – placeholder (selectors TBD)
+  # ---------------------------------------------------------------------------
+  - name: "CBO Circulars"
+    slug: cbo_circulars
+    url: "https://www.cbo.gov.om/en/Pages/circulars.aspx"
+    enabled: false
+    tags: [oman, banking, circular]
+    parser:
+      type: html
+      item_selector: "TODO"
+      fields:
+        title:
+          selector: "TODO"
+          attr: text
+        date:
+          selector: "TODO"
+          attr: text
+        link:
+          selector: "TODO"
+          attr: href
+    liveness:
+      min_items: 1

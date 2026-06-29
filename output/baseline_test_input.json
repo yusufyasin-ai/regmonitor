@@ -1,0 +1,23 @@
+{
+  "title": "Revised Outsourcing Rulebook Module – Cloud Services",
+  "date": "2025-02-28",
+  "link": "https://rulebook.centralbank.ae/en/node/8842",
+  "source": "CBUAE Rulebook Updates",
+  "source_slug": "cbuae_rulebook",
+  "tags": [
+    "uae",
+    "banking",
+    "rulebook"
+  ],
+  "classification": {
+    "relevance_score": 0.89,
+    "confidence": 0.85,
+    "policy_area": "outsourcing",
+    "summary": "This revision to the CBUAE Outsourcing Module introduces mandatory cloud-specific provisions including data residency requirements, right-to-audit clauses, and concentration risk limits for cloud service providers. Licensed institutions relying on public cloud infrastructure must conduct a gap assessment against the updated module and remediate within 6 months."
+  },
+  "_selection": {
+    "rule_matched": 2,
+    "rule_text": "outsourcing or cloud",
+    "reason": "policy_area=outsourcing and title contains Cloud Services"
+  }
+}

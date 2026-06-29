@@ -1,0 +1,60 @@
+{
+  "item": {
+    "title": "Revised Outsourcing Rulebook Module – Cloud Services",
+    "date": "2025-02-28",
+    "link": "https://rulebook.centralbank.ae/en/node/8842",
+    "source": "CBUAE Rulebook Updates",
+    "policy_area": "outsourcing"
+  },
+  "baseline_model": "claude-haiku-4-5-20251001",
+  "analyzed_at": "2026-06-28T14:49:33.760359+00:00",
+  "obligations": [
+    {
+      "id": "OBL-1",
+      "description": "Cloud outsourcing agreements must include mandatory data residency clauses specifying UAE jurisdiction.",
+      "addressed": false,
+      "confidence": 0.93,
+      "evidence": "",
+      "gap": "Outsourcing policy references data protection and exit provisions but does not mandate geographic data residency."
+    },
+    {
+      "id": "OBL-2",
+      "description": "Right-to-audit must be contractually secured for all material cloud service providers.",
+      "addressed": true,
+      "confidence": 0.88,
+      "evidence": "Section 5: Outsourcing agreements must include audit rights.",
+      "gap": ""
+    },
+    {
+      "id": "OBL-3",
+      "description": "Institution must assess and document cloud provider concentration risk annually.",
+      "addressed": false,
+      "confidence": 0.86,
+      "evidence": "",
+      "gap": "Policy does not mention cloud concentration risk or require periodic assessment of provider dependency."
+    },
+    {
+      "id": "OBL-4",
+      "description": "Board must approve all material cloud outsourcing arrangements prior to go-live.",
+      "addressed": true,
+      "confidence": 0.94,
+      "evidence": "Section 5: Material outsourcing arrangements require prior board approval.",
+      "gap": ""
+    },
+    {
+      "id": "OBL-5",
+      "description": "Gap assessment against updated module must be completed and remediated within 6 months.",
+      "addressed": false,
+      "confidence": 0.55,
+      "evidence": "",
+      "gap": "Policy has no mechanism for tracking regulatory module updates or mandating gap assessments on revision."
+    }
+  ],
+  "summary": {
+    "total": 5,
+    "addressed": 2,
+    "unaddressed": 3,
+    "gap_ratio": 0.6,
+    "low_confidence_count": 1
+  }
+}

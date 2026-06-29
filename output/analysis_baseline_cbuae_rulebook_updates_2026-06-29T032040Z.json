@@ -1,0 +1,85 @@
+{
+  "item": {
+    "title": "Revised Outsourcing Rulebook Module – Cloud Services",
+    "date": "2025-02-28",
+    "link": "https://rulebook.centralbank.ae/en/node/8842",
+    "source": "CBUAE Rulebook Updates",
+    "policy_area": "outsourcing"
+  },
+  "baseline_model": "claude-haiku-4-5-20251001",
+  "analyzed_at": "2026-06-29T03:20:40.855589+00:00",
+  "obligations": [
+    {
+      "id": "OBL-1",
+      "description": "Cloud outsourcing agreements must include mandatory data residency clauses specifying UAE jurisdiction.",
+      "coverage": "not_covered",
+      "confidence": 0.93,
+      "evidence": "",
+      "gap": "Outsourcing policy references data protection and exit provisions but does not mandate geographic data residency."
+    },
+    {
+      "id": "OBL-2",
+      "description": "Right-to-audit must be contractually secured for all material cloud service providers.",
+      "coverage": "covered",
+      "confidence": 0.88,
+      "evidence": "Section 5: Outsourcing agreements must include audit rights.",
+      "gap": ""
+    },
+    {
+      "id": "OBL-3",
+      "description": "Institution must assess and document cloud provider concentration risk annually.",
+      "coverage": "not_covered",
+      "confidence": 0.86,
+      "evidence": "",
+      "gap": "Policy does not mention cloud concentration risk or require periodic assessment of provider dependency."
+    },
+    {
+      "id": "OBL-4",
+      "description": "Board must approve all material cloud outsourcing arrangements prior to go-live.",
+      "coverage": "covered",
+      "confidence": 0.94,
+      "evidence": "Section 5: Material outsourcing arrangements require prior board approval.",
+      "gap": ""
+    },
+    {
+      "id": "OBL-5",
+      "description": "Gap assessment against updated module must be completed and remediated within 6 months.",
+      "coverage": "not_covered",
+      "confidence": 0.55,
+      "evidence": "",
+      "gap": "Policy has no mechanism for tracking regulatory module updates or mandating gap assessments on revision."
+    },
+    {
+      "id": "OBL-6",
+      "description": "Cloud service agreements must include enforceable exit and transition provisions.",
+      "coverage": "partial",
+      "confidence": 0.82,
+      "evidence": "Section 5: outsourcing agreements covering … exit provisions.",
+      "gap": "Policy references exit provisions generically but imposes no cloud-specific transition timelines or data return obligations."
+    },
+    {
+      "id": "OBL-7",
+      "description": "Institution must maintain and test a business continuity plan covering cloud service disruption scenarios.",
+      "coverage": "partial",
+      "confidence": 0.79,
+      "evidence": "Section 3 (Operational Risk): BCPs must be documented and tested annually.",
+      "gap": "BCP section does not explicitly require cloud-failure scenarios to be included as a tested disruption category."
+    },
+    {
+      "id": "OBL-8",
+      "description": "Sub-contracting by cloud service providers must be disclosed to and approved by the institution.",
+      "coverage": "not_covered",
+      "confidence": 0.91,
+      "evidence": "",
+      "gap": "Policy has no provision requiring disclosure or approval of cloud sub-contractors (fourth-party risk)."
+    }
+  ],
+  "summary": {
+    "total": 8,
+    "covered": 2,
+    "partial": 2,
+    "not_covered": 4,
+    "gap_ratio": 0.625,
+    "low_confidence_count": 1
+  }
+}

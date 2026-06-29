@@ -1,0 +1,52 @@
+{
+  "item": {
+    "title": "Circular No. 2/2025: Updated AML/CFT Requirements for Digital Payment Providers",
+    "date": "2025-03-15",
+    "link": "https://cbben.thomsonreuters.com/rulebook/circular-2-2025",
+    "source": "CBB Circulars",
+    "policy_area": "aml_cft"
+  },
+  "baseline_model": "claude-haiku-4-5-20251001",
+  "analyzed_at": "2026-06-28T14:49:33.759456+00:00",
+  "obligations": [
+    {
+      "id": "OBL-1",
+      "description": "FIs must conduct enhanced due diligence for all digital payment customers rated medium-high risk.",
+      "addressed": false,
+      "confidence": 0.9,
+      "evidence": "",
+      "gap": "Policy covers standard CDD but does not reference digital payment-specific risk factors or enhanced thresholds for this segment."
+    },
+    {
+      "id": "OBL-2",
+      "description": "Transaction monitoring rules must include digital-payment-specific typologies (rapid fund cycling, micro-structuring via apps).",
+      "addressed": false,
+      "confidence": 0.85,
+      "evidence": "",
+      "gap": "Policy mandates transaction monitoring but specifies no digital-channel typologies or scenario coverage."
+    },
+    {
+      "id": "OBL-3",
+      "description": "Customer risk assessments must be updated to include digital payment channel risk as a standalone factor.",
+      "addressed": false,
+      "confidence": 0.82,
+      "evidence": "",
+      "gap": "Policy risk scoring model predates the digital payments circular; channel risk not listed as a variable."
+    },
+    {
+      "id": "OBL-4",
+      "description": "AML Compliance Officer must certify programme adequacy against updated requirements by Q3 2025.",
+      "addressed": true,
+      "confidence": 0.78,
+      "evidence": "Section 2: An AML Compliance Officer must be appointed at senior management level.",
+      "gap": ""
+    }
+  ],
+  "summary": {
+    "total": 4,
+    "addressed": 1,
+    "unaddressed": 3,
+    "gap_ratio": 0.75,
+    "low_confidence_count": 0
+  }
+}

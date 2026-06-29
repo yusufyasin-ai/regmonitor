@@ -1,0 +1,8 @@
+# Runtime state — never commit
+state/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
