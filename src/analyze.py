@@ -37,7 +37,7 @@ from observability import (
 
 COMPONENT = "analyze"
 
-ANALYZE_MODEL = os.environ.get("REGMONITOR_ANALYZE_MODEL", "claude-haiku-4-5-20251001")
+ANALYZE_MODEL = os.environ.get("REGMONITOR_ANALYZE_MODEL", "claude-sonnet-4-6")
 LOW_CONFIDENCE_THRESHOLD = float(os.environ.get("REGMONITOR_CONFIDENCE_THRESHOLD", "0.70"))
 # Fire BASELINE_DIVERGENCE when this fraction of obligations are unaddressed.
 DIVERGENCE_THRESHOLD = float(os.environ.get("REGMONITOR_DIVERGENCE_THRESHOLD", "0.40"))
@@ -1063,6 +1063,9 @@ def _load_item(path_str: str) -> dict:
 
 
 def _find_policy() -> Path:
+    preferred = _ROOT / "policy" / "sample-oprisk-policy.md"
+    if preferred.exists():
+        return preferred
     candidates = sorted((_ROOT / "policy").glob("*.md"))
     if not candidates:
         raise FileNotFoundError("No .md file found in policy/. Drop one there first.")
