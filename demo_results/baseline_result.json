@@ -1,0 +1,86 @@
+{
+  "item": {
+    "title": "Revised Outsourcing Rulebook Module – Cloud Services",
+    "date": "2025-02-28",
+    "link": "https://rulebook.centralbank.ae/en/node/8842",
+    "source": "CBUAE Rulebook Updates",
+    "policy_area": "outsourcing",
+    "description": "This revision to the CBUAE Outsourcing Module introduces mandatory cloud-specific provisions — including data residency requirements, right-to-audit clauses, and concentration risk controls — for licensed financial institutions using public cloud infrastructure. Institutions must conduct a gap assessment against the updated module and complete remediation within six months of publication."
+  },
+  "baseline_model": "claude-sonnet-4-6",
+  "analyzed_at": "2026-06-29T05:40:11.000000+00:00",
+  "obligations": [
+    {
+      "id": "OBL-1",
+      "description": "Cloud outsourcing agreements must incorporate mandatory data residency clauses specifying that data is stored and processed within the UAE.",
+      "coverage": "not_covered",
+      "confidence": 0.92,
+      "evidence": "",
+      "gap": "The policy contains no provision on geographic data residency or UAE jurisdiction requirements for cloud-stored data."
+    },
+    {
+      "id": "OBL-2",
+      "description": "Licensed institutions must contractually secure right-to-audit over all material cloud service providers.",
+      "coverage": "not_covered",
+      "confidence": 0.88,
+      "evidence": "",
+      "gap": "Policy mentions third-party oversight in general terms but does not mandate contractual audit rights for cloud providers specifically."
+    },
+    {
+      "id": "OBL-3",
+      "description": "Licensed institutions must assess and document concentration risk arising from cloud service provider dependencies.",
+      "coverage": "not_covered",
+      "confidence": 0.85,
+      "evidence": "",
+      "gap": "Cloud concentration risk is not addressed; the policy’s operational risk section does not extend to cloud provider dependency."
+    },
+    {
+      "id": "OBL-4",
+      "description": "All material cloud outsourcing arrangements must receive board-level approval prior to go-live.",
+      "coverage": "not_covered",
+      "confidence": 0.89,
+      "evidence": "",
+      "gap": "The policy requires board approval for material outsourcing generally but does not treat cloud arrangements as a distinct governance category."
+    },
+    {
+      "id": "OBL-5",
+      "description": "Licensed institutions must complete a gap assessment against the updated Outsourcing Module cloud provisions and remediate all gaps within six months of publication.",
+      "coverage": "not_covered",
+      "confidence": 0.81,
+      "evidence": "",
+      "gap": "The policy has no mechanism for tracking regulatory module revisions or mandating gap assessments upon publication."
+    },
+    {
+      "id": "OBL-6",
+      "description": "Licensed FIs must maintain a register of material outsourcing arrangements, including cloud service engagements.",
+      "coverage": "partial",
+      "confidence": 0.84,
+      "evidence": "Section 5: Outsourcing arrangements must be documented and recorded.",
+      "gap": "The register requirement exists but does not extend to cloud services or require the additional disclosure fields mandated by the updated module."
+    },
+    {
+      "id": "OBL-7",
+      "description": "Licensed FIs must conduct a risk assessment prior to entering into cloud outsourcing arrangements and perform ongoing monitoring of those arrangements.",
+      "coverage": "partial",
+      "confidence": 0.87,
+      "evidence": "Section 4: Risk assessments are required before entering into material outsourcing arrangements.",
+      "gap": "The existing requirement covers outsourcing generally; it does not address cloud-specific risk factors (e.g., multi-tenancy, portability) or the enhanced ongoing monitoring cadence in the updated module."
+    },
+    {
+      "id": "OBL-8",
+      "description": "Licensed institutions must ensure accountability for all outsourced activities, including cloud services, remains within the institution and cannot be delegated to the service provider.",
+      "coverage": "covered",
+      "confidence": 0.91,
+      "evidence": "Section 3: The institution remains responsible and accountable for all outsourced activities; accountability may not be delegated.",
+      "gap": ""
+    }
+  ],
+  "summary": {
+    "total": 8,
+    "covered": 1,
+    "partial": 2,
+    "not_covered": 5,
+    "gap_ratio": 0.75,
+    "low_confidence_count": 0
+  }
+}

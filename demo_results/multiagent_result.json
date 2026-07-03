@@ -1,0 +1,178 @@
+{
+  "item": {
+    "title": "Revised Outsourcing Rulebook Module – Cloud Services",
+    "date": "2025-02-28",
+    "link": "https://rulebook.centralbank.ae/en/node/8842",
+    "source": "CBUAE Rulebook Updates",
+    "policy_area": "outsourcing",
+    "description": "This revision to the CBUAE Outsourcing Module introduces mandatory cloud-specific provisions — including data residency requirements, right-to-audit clauses, and concentration risk controls — for licensed financial institutions using public cloud infrastructure. Institutions must conduct a gap assessment against the updated module and complete remediation within six months of publication."
+  },
+  "approach": "multi_agent",
+  "first_pass_model": "claude-sonnet-4-6",
+  "validator_model": "claude-opus-4-6",
+  "analyzed_at": "2026-06-29T05:42:44.000000+00:00",
+  "obligations": [
+    {
+      "id": "OBL-1",
+      "description": "Licensed institutions must incorporate mandatory data residency provisions into cloud outsourcing agreements, specifying that data is stored within the UAE.",
+      "basis": "mandatory cloud-specific provisions including data residency requirements",
+      "coverage": "not_covered",
+      "confidence": 0.91,
+      "evidence": "",
+      "ambiguity_note": "",
+      "is_gap": true,
+      "finding": "The policy contains no provision on geographic data residency. The updated module explicitly mandates UAE jurisdiction for cloud-stored data, a requirement entirely absent from the current policy.",
+      "validator": {
+        "obligation_valid": true,
+        "independent_coverage": "not_covered",
+        "validator_confidence": 0.93,
+        "agrees_with_mapper": true,
+        "agrees_with_gap": true,
+        "rationale": "Policy reviewed in full: no mention of data residency, UAE jurisdiction, or geographic storage constraints for cloud providers."
+      }
+    },
+    {
+      "id": "OBL-2",
+      "description": "Licensed institutions must contractually secure audit rights over material cloud service providers.",
+      "basis": "right-to-audit clauses",
+      "coverage": "not_covered",
+      "confidence": 0.89,
+      "evidence": "",
+      "ambiguity_note": "Policy section on third-party oversight is general; it may imply audit rights but does not mandate them contractually for cloud providers.",
+      "is_gap": true,
+      "finding": "While the policy references third-party oversight in general terms, it does not mandate contractual audit rights for cloud providers as a distinct requirement.",
+      "validator": {
+        "obligation_valid": true,
+        "independent_coverage": "not_covered",
+        "validator_confidence": 0.88,
+        "agrees_with_mapper": true,
+        "agrees_with_gap": true,
+        "rationale": "Policy’s outsourcing section mentions oversight but no contractual audit right is stated for cloud providers specifically."
+      }
+    },
+    {
+      "id": "OBL-3",
+      "description": "Licensed institutions must assess concentration risk arising from cloud service provider dependencies and document findings.",
+      "basis": "concentration risk limits for cloud service providers",
+      "coverage": "not_covered",
+      "confidence": 0.86,
+      "evidence": "",
+      "ambiguity_note": "",
+      "is_gap": true,
+      "finding": "Cloud concentration risk is not addressed in the policy. The operational risk section does not extend to cloud provider dependency or mandate periodic assessment.",
+      "validator": {
+        "obligation_valid": true,
+        "independent_coverage": "not_covered",
+        "validator_confidence": 0.90,
+        "agrees_with_mapper": true,
+        "agrees_with_gap": true,
+        "rationale": "No concentration risk or cloud provider dependency language found anywhere in the policy."
+      }
+    },
+    {
+      "id": "OBL-4",
+      "description": "Material cloud outsourcing arrangements must receive board-level or equivalent governance approval prior to go-live.",
+      "basis": "mandatory cloud-specific provisions",
+      "coverage": "not_covered",
+      "confidence": 0.83,
+      "evidence": "",
+      "ambiguity_note": "The policy requires board approval for material outsourcing generally but does not define cloud as a distinct category requiring separate governance.",
+      "is_gap": true,
+      "finding": "The general outsourcing governance requirement does not satisfy the updated module’s explicit requirement that cloud arrangements be treated as a distinct governance category with separate board sign-off.",
+      "validator": {
+        "obligation_valid": true,
+        "independent_coverage": "not_covered",
+        "validator_confidence": 0.82,
+        "agrees_with_mapper": true,
+        "agrees_with_gap": true,
+        "rationale": "General board approval requirement exists but cloud is not identified as a distinct category. The new module’s requirement is not met."
+      }
+    },
+    {
+      "id": "OBL-5",
+      "description": "Licensed institutions must conduct a gap assessment against the revised Outsourcing Module’s cloud provisions and complete remediation within six months of publication.",
+      "basis": "conduct a gap assessment against the updated module and remediate within 6 months",
+      "coverage": "not_covered",
+      "confidence": 0.88,
+      "evidence": "",
+      "ambiguity_note": "",
+      "is_gap": true,
+      "finding": "The policy has no mechanism for tracking regulatory module revisions or mandating gap assessments on publication. The six-month remediation timeline is entirely absent.",
+      "validator": {
+        "obligation_valid": true,
+        "independent_coverage": "not_covered",
+        "validator_confidence": 0.91,
+        "agrees_with_mapper": true,
+        "agrees_with_gap": true,
+        "rationale": "No provision for responding to regulatory module revisions or conducting gap assessments found in the policy."
+      }
+    },
+    {
+      "id": "OBL-6",
+      "description": "Licensed institutions must maintain documented records of the gap assessment conducted against the updated module, sufficient to demonstrate regulatory compliance.",
+      "basis": "inferred from regulation type — regulatory compliance documentation standard",
+      "coverage": "not_covered",
+      "confidence": 0.79,
+      "evidence": "",
+      "ambiguity_note": "",
+      "is_gap": true,
+      "finding": "The policy does not require the institution to maintain or produce gap assessment documentation for the purpose of demonstrating compliance with regulatory module revisions.",
+      "validator": {
+        "obligation_valid": true,
+        "independent_coverage": "not_covered",
+        "validator_confidence": 0.78,
+        "agrees_with_mapper": true,
+        "agrees_with_gap": true,
+        "rationale": "No gap-assessment record-keeping requirement found. This is standard supervisory practice but not stated in the current policy."
+      }
+    },
+    {
+      "id": "OBL-7",
+      "description": "Licensed institutions must report or notify the CBUAE of material gaps identified during the gap assessment, or of remediation progress, in accordance with supervisory expectations.",
+      "basis": "inferred from regulatory supervisory framework — CBUAE supervisory notifications",
+      "coverage": "not_covered",
+      "confidence": 0.61,
+      "evidence": "",
+      "ambiguity_note": "This obligation is inferred from general supervisory expectations; the updated module summary does not explicitly state a notification requirement.",
+      "is_gap": true,
+      "finding": "No proactive CBUAE notification requirement for gap assessment results is present in the policy. This obligation was inferred from supervisory norms rather than explicit module text.",
+      "validator": {
+        "obligation_valid": false,
+        "independent_coverage": "not_covered",
+        "validator_confidence": 0.65,
+        "agrees_with_mapper": true,
+        "agrees_with_gap": false,
+        "rationale": "Re-reading the regulation text (title and official summary), I cannot identify explicit language requiring notification of the CBUAE of gap assessment results. This appears to have been inferred by the READER beyond what the source text supports and cannot be traced to the source regulation."
+      }
+    },
+    {
+      "id": "OBL-8",
+      "description": "Contracts with cloud service providers must be reviewed and amended to incorporate the mandatory cloud-specific terms introduced by the revised module, including data residency clauses and audit rights.",
+      "basis": "mandatory cloud-specific provisions including data residency requirements, right-to-audit clauses",
+      "coverage": "partially_covered",
+      "confidence": 0.77,
+      "evidence": "Section 5: Outsourcing agreements must be reviewed periodically and updated to reflect changes in regulatory requirements.",
+      "ambiguity_note": "The policy’s general contract review clause may partially address this, but does not specify cloud-specific provisions or the updated module’s mandatory terms.",
+      "is_gap": true,
+      "finding": "While the policy requires periodic agreement review, it does not specify that cloud contracts must be updated to incorporate the module’s new mandatory terms. The specific cloud provisions (data residency, audit rights) are absent.",
+      "validator": {
+        "obligation_valid": true,
+        "independent_coverage": "partially_covered",
+        "validator_confidence": 0.80,
+        "agrees_with_mapper": true,
+        "agrees_with_gap": true,
+        "rationale": "Policy’s contract review requirement partially covers this but lacks specificity for the cloud-specific provisions mandated by the updated module."
+      }
+    }
+  ],
+  "summary": {
+    "total": 8,
+    "covered": 0,
+    "partially_covered": 1,
+    "not_covered": 7,
+    "gap_count": 8,
+    "gap_ratio": 0.938,
+    "validator_disagreements": 1,
+    "missed_obligations": 0
+  }
+}
