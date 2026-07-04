@@ -24,6 +24,7 @@ jobs:
       - name: Run monitor
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          FETCH_MODE: live
         run: |
           cd $GITHUB_WORKSPACE
           PYTHONPATH=src python3 src/monitor.py
