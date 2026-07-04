@@ -115,16 +115,22 @@ def _get_html(source: dict) -> tuple[str, bool]:
 
     Raises OSError for fixture read failures, requests.RequestException for
     live fetch failures — the caller logs SOURCE_FAILURE and returns early.
+
+    When FETCH_MODE env var is 'live', always fetch from url even if
+    fixture_path is configured. This lets GitHub Actions run live while
+    local development uses fixtures.
     """
+    import os
+    fetch_mode = os.environ.get("FETCH_MODE", "fixture")
     fixture_rel = source.get("fixture_path", "")
-    if fixture_rel:
+
+    if fixture_rel and fetch_mode != "live":
         path = (_ROOT / fixture_rel).resolve()
         return path.read_text(encoding="utf-8"), True
 
     resp = requests.get(source["url"], headers=_HEADERS, timeout=_DEFAULT_TIMEOUT)
     resp.raise_for_status()
     return resp.text, False
-
 
 # ---------------------------------------------------------------------------
 # Single-source fetch + parse
