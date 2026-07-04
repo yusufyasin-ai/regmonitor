@@ -28,6 +28,7 @@ sources:
   # CBUAE Rulebook – revision updates feed
   # Selector notes: Drupal Views table; verify column class names on the live page.
   # ---------------------------------------------------------------------------
+
   - name: "CBUAE Rulebook Updates"
     slug: cbuae_rulebook
     url: "https://rulebook.centralbank.ae/en/view-revision-updates"
@@ -36,18 +37,16 @@ sources:
     tags: [uae, banking, rulebook]
     parser:
       type: html
-      # Each row in the revisions table.
-      item_selector: "table.views-table tbody tr"
+      item_selector: "div.views-row"
       fields:
         title:
-          # The linked document name; adjust class if column renders differently.
-          selector: "td.views-field-title"
+          selector: "div.book-detail a"
           attr: text
         date:
-          selector: "td.views-field-changed"
+          selector: "div.book-detail a"
           attr: text
         link:
-          selector: "td.views-field-title a"
+          selector: "div.book-detail a"
           attr: href
     liveness:
       min_items: 3
