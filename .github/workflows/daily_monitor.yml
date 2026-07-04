@@ -1,0 +1,44 @@
+name: Daily Regulatory Monitor
+
+on:
+  schedule:
+    - cron: '0 5 * * *'  # 9:00 AM Bahrain time (UTC+4)
+  workflow_dispatch:       # allows manual trigger from GitHub
+
+jobs:
+  run-monitor:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run monitor
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          cd $GITHUB_WORKSPACE
+          PYTHONPATH=src python3 src/monitor.py
+
+      - name: Upload digest as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: daily-digest
+          path: output/
+          retention-days: 7
+
+      - name: Commit digest to repo
+        run: |
+          git config user.name "RegMonitor Bot"
+          git config user.email "actions@github.com"
+          git add output/
+          git diff --staged --quiet || git commit -m "Daily digest: $(date -u '+%Y-%m-%d')"
+          git push
