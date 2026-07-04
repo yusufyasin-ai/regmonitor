@@ -1,0 +1,29 @@
+name: Fixture Freshness Reminder
+
+on:
+  schedule:
+    - cron: '0 6 1 * *'  # 1st of every month at 10:00 AM Bahrain time
+  workflow_dispatch:
+
+jobs:
+  check-fixtures:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Check fixture age
+        run: |
+          echo "=== Fixture File Status ==="
+          for f in fixtures/*.html; do
+            modified=$(git log -1 --format="%ai" -- "$f")
+            echo "$f — last updated: $modified"
+          done
+          echo ""
+          echo "ACTION REQUIRED: Please review fixtures and update if older than 30 days."
+          echo "Steps:"
+          echo "1. Open https://rulebook.centralbank.ae/en/view-revision-updates in browser"
+          echo "2. Save page as fixtures/cbuae_rulebook.html"
+          echo "3. Open https://cbben.thomsonreuters.com/rulebook/list-circulars-0 in browser"  
+          echo "4. Save page as fixtures/cbb_circulars.html"
+          echo "5. Commit and push both files"
