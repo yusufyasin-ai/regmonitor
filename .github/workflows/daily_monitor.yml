@@ -40,3 +40,17 @@ jobs:
         run: |
           echo "Digest written to output/ and uploaded as artifact."
           echo "Download from Actions → this run → Artifacts to review before posting to Substack."
+
+      - name: Debug log
+        if: always()
+        run: |
+          cat /home/runner/work/regmonitor/regmonitor/logs/observation_log.jsonl | python3 -c "
+          import sys, json
+          for line in sys.stdin:
+              try:
+                  e = json.loads(line)
+                  if e.get('event_type') in ['SOURCE_FAILURE', 'ERROR']:
+                      print(e['timestamp'], e['event_type'], e['severity'])
+                      print(' ', e.get('message',''))
+              except: pass
+          "
