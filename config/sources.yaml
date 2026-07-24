@@ -37,17 +37,18 @@ sources:
     tags: [uae, banking, rulebook]
     parser:
       type: html
-      item_selector: "div.views-row"
+      item_selector: "table.views-table tbody tr"
       fields:
         title:
-          selector: "div.book-detail a"
+          selector: "td.views-field-title"
           attr: text
         date:
-          selector: "div.book-detail a"
+          selector: "td.views-field-changed"
           attr: text
         link:
-          selector: "div.book-detail a"
+          selector: "td.views-field-title a"
           attr: href
+
     liveness:
       min_items: 3
 
