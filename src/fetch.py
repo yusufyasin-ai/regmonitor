@@ -325,3 +325,60 @@ def fetch_all(sources: list[dict]) -> tuple[list[dict], list[str], list[str], se
         all_new.extend(new_items)
 
     return all_new, healthy, failed, fixture_sources
+
+
+# ---------------------------------------------------------------------------
+# Article text fetching (CBUAE only — static HTML, text in <td> elements)
+# CBB Thomson Reuters pages are JavaScript-rendered and cannot be scraped.
+# ---------------------------------------------------------------------------
+
+def fetch_article_text(link: str, source_slug: str) -> str | None:
+    """Fetch and extract the main body text from a CBUAE article page.
+
+    Only runs for cbuae_rulebook sources. Returns cleaned plain text or None
+    on failure. Never crashes the pipeline — all errors are logged and swallowed.
+    """
+    if source_slug != "cbuae_rulebook":
+        return None
+
+    try:
+        resp = requests.get(link, headers=_HEADERS, timeout=_DEFAULT_TIMEOUT)
+        resp.raise_for_status()
+    except requests.RequestException as exc:
+        log_event(
+            ERROR, WARN, COMPONENT,
+            f"ARTICLE_FETCH_FAILED: could not fetch {link}: {exc}",
+            {"link": link, "source_slug": source_slug, "error": str(exc)},
+        )
+        return None
+
+    soup = BeautifulSoup(resp.text, "html.parser")
+
+    # Remove navigation, headers, footers, scripts, styles
+    for tag in soup(["nav", "header", "footer", "script", "style", "aside"]):
+        tag.decompose()
+
+    # Extract text from <td> elements which hold the regulation body
+    tds = soup.find_all("td")
+    text_parts = []
+    for td in tds:
+        text = td.get_text(" ", strip=True)
+        if len(text) > 50:  # skip short cells (numbers, labels, etc.)
+            text_parts.append(text)
+
+    article_text = "\n\n".join(text_parts).strip()
+
+    if not article_text:
+        log_event(
+            ERROR, WARN, COMPONENT,
+            f"ARTICLE_FETCH_FAILED: no text extracted from {link}",
+            {"link": link, "source_slug": source_slug},
+        )
+        return None
+
+    log_event(
+        "ARTICLE_FETCH", INFO, COMPONENT,
+        f"Fetched article text from {link} ({len(article_text)} chars)",
+        {"link": link, "source_slug": source_slug, "char_count": len(article_text)},
+    )
+    return article_text

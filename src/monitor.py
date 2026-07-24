@@ -254,6 +254,15 @@ def run() -> None:
         {"new_items": len(new_items), "healthy": len(healthy_sources), "failed": len(failed_sources)},
     )
 
+    # Fetch article text for CBUAE items (static HTML, scrapeable locally)
+    for item in new_items:
+        if item.get("source_slug") == "cbuae_rulebook":
+            article_text = fetch_module.fetch_article_text(
+                item.get("link", ""), item.get("source_slug", "")
+            )
+            if article_text:
+                item["article_text"] = article_text
+
     # Classify
     classified_items = classify_module.classify_items(new_items, policy_text)
 
